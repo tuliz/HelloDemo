@@ -8,12 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
-@Entity(name = "user")
-@Table(name = "user")
+@Entity(name = "users")
+@Table(name = "users")
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "userName")
+	@Column(name = "userId")
 	private int userId;
 	@Size(min = 4, max = 11)
 	@Column(name = "userName")
@@ -23,9 +23,8 @@ public class User {
 	public User() {
 		super();
 	}
-	public User(int userId, String userName, String password) {
+	public User(String userName, String password) {
 		super();
-		this.userId = userId;
 		this.userName = userName;
 		this.password = password;
 	}

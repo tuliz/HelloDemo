@@ -11,10 +11,10 @@
 <title>Login</title>
 </head>
 <body>
-<form:form action="loginCheck" modelAttribute="user">
-<p>Name:<form:input path="userName" /></p>
-<p><form:password path="password"/><p>
-<input type="button" value="Send"/>
+<form:form action="loginCheck" method="post" modelAttribute="user"> 
+Username:<form:input path="userName"/><br>
+Password:<form:password  path="password"/><br>
+<input type="submit" value="Submit"/><br>
 </form:form>
 </body>
 </html>

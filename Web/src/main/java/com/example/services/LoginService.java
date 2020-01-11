@@ -1,21 +1,19 @@
 package com.example.services;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.example.DAO.LoginDAO;
 import com.example.entity.User;
 
 public class LoginService{
-@Autowired
-private LoginRepository repo;
-
-public boolean checkUser(User user) {
-	List<User> userList = (List<User>) repo.findAll();
-	for(int i = 0; i < userList.size(); i++) {
-		if(user.getUserName().equals(userList.get(i).getUserName()) && user.getPassword().equals(userList.get(i).getPassword()))
-			return true;
+	public void postUser(User user) {
+		 new LoginDAO().postUser(user);
+	
 	}
-	return false;
+	
+public boolean checkUser(User user) {
+	return new LoginDAO().checkUser(user);
 }
 }
